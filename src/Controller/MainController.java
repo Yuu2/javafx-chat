@@ -5,8 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Function.Machine;
-import View.Login;
-
+import Stage.Login;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -52,33 +51,36 @@ public class MainController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {	
 		/**	 입력창 글자 수 제한 ( LIMIT 40 ) **/
 		txtInput.lengthProperty().addListener(new ChangeListener<Number>() {		
-	            @Override
-	            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+		  
+		  @Override
+	      public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 	              
-	            	final int LIMIT = 40;
+	      final int LIMIT = 40;
 	            	
-	                if (newValue.intValue() > oldValue.intValue()) {
-	                    if (txtInput.getText().length() >= LIMIT) {
-	                    	StringBuffer sb = new StringBuffer(txtInput.getText());
-	                    	sb.delete(0, LIMIT).toString();
-	                    	txtInput.setText(txtInput.getText().substring(0, LIMIT));
-	                   }
-	               }
-	           }
-	    });	
-		/**	 키보드 ENTER -> 전송 **/
+	        if (newValue.intValue() > oldValue.intValue()) {
+	          if (txtInput.getText().length() >= LIMIT) {
+	            StringBuffer sb = new StringBuffer(txtInput.getText());
+	            sb.delete(0, LIMIT).toString();
+	            txtInput.setText(txtInput.getText().substring(0, LIMIT));
+	          }
+	        }
+	      }
+	    });
+		
+		/**	 전송 :  ENTER **/
 		txtInput.setOnKeyPressed(new EventHandler<KeyEvent>() {						
-		    @Override
+		  @Override
 		    public void handle(KeyEvent keyEvent) {
-		        if (keyEvent.getCode() == KeyCode.ENTER)  {
-		        	try {
-		        	machine.send(txtInput.getText());
-		            txtInput.clear();
-		        	} catch (Exception e) {}
-		        }
+		      if (keyEvent.getCode() == KeyCode.ENTER)  {
+		        try {
+		          machine.send(txtInput.getText());
+    		      txtInput.clear();
+		        } catch (Exception e) {}
+		      }
 		    }
 		});
-		/** 마우스클릭 -> 전송　**/
+		
+		/** 전송 : CLICK　**/
 		btnSend.setOnAction(e-> {													
 			machine.send(txtInput.getText());
 			txtInput.clear();
