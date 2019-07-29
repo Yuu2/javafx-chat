@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
-/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
 public class WaitRoomController implements Initializable{
 	
 	@FXML 
@@ -28,7 +28,7 @@ public class WaitRoomController implements Initializable{
 		
 	}
 	
-	/*** 대기방 -> 메인 ***/
+	// 대기방
 	public void btnBackAction(ActionEvent e) {
 	
 		StackPane root = (StackPane) btnBack.getScene().getRoot();

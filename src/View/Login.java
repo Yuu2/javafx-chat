@@ -21,8 +21,8 @@ public class Login  {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ctrLogin.fxml"));
 			Parent root = (Parent) loader.load();
 
-			Station.ctr1 = loader.getController();
-			Station.ctr1.set(stage);
+			Station.login = loader.getController();
+			Station.login.set(stage);
 			
 			Scene scene = new Scene(root);
 			

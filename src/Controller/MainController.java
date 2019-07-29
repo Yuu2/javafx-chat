@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Dummy.DummyController;
+import Function.Machine;
 import View.Login;
 
 import javafx.beans.value.ChangeListener;
@@ -24,13 +24,18 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
 /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 public class MainController implements Initializable{
 	
+    public Stage primaryStage;
+  
 	// 접속 버튼
 	@FXML public Button btnConn;
 	// 전송 버튼
 	@FXML public Button btnSend;
+	// 채팅룸 이동
+    @FXML public Button btnWaitRoom;
 	// 입력창
 	@FXML public TextField txtInput;
 	// 출력창
@@ -39,13 +44,8 @@ public class MainController implements Initializable{
 	@FXML public ListView<String> listView;
 	// 귓속말 기능 
 	@FXML public ComboBox<String> sendBox;
-	// 채팅룸 대기방
-	@FXML public Button btnWaitRoom;
 	
-	public Stage primaryStage;
-	
-	
-	DummyController base;
+	Machine machine;
 	
 /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */	
 	@Override
@@ -53,9 +53,10 @@ public class MainController implements Initializable{
 		/**	 입력창 글자 수 제한 ( LIMIT 40 ) **/
 		txtInput.lengthProperty().addListener(new ChangeListener<Number>() {		
 	            @Override
-	            public void changed(ObservableValue<? extends Number> observable,
-	                    Number oldValue, Number newValue) {
+	            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+	              
 	            	final int LIMIT = 40;
+	            	
 	                if (newValue.intValue() > oldValue.intValue()) {
 	                    if (txtInput.getText().length() >= LIMIT) {
 	                    	StringBuffer sb = new StringBuffer(txtInput.getText());
@@ -71,7 +72,7 @@ public class MainController implements Initializable{
 		    public void handle(KeyEvent keyEvent) {
 		        if (keyEvent.getCode() == KeyCode.ENTER)  {
 		        	try {
-		        	base.send(txtInput.getText());
+		        	machine.send(txtInput.getText());
 		            txtInput.clear();
 		        	} catch (Exception e) {}
 		        }
@@ -79,40 +80,46 @@ public class MainController implements Initializable{
 		});
 		/** 마우스클릭 -> 전송　**/
 		btnSend.setOnAction(e-> {													
-			base.send(txtInput.getText());
+			machine.send(txtInput.getText());
 			txtInput.clear();
 		});
 	}
-/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */	
-	/**	 클라이언트 시작 or 종료 버튼 **/
-	public void btnConnAction(ActionEvent e) {
-		base = new DummyController();
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+	/**	클라이언트 구동 **/
+	public void btnConnAction(ActionEvent event) {
+		machine = new Machine();
+		
 		if(btnConn.getText().equals("접속")) {
-			Login login = new Login();
+			
+		  Login login = new Login();
 			try {
 				login.view();
-			} catch (IOException ioe) {}
+			} catch (Exception e) { return; }
 			
-			base.startClient();
-			
-		} else if(btnConn.getText().equals("종료")) {
+			machine.start();	
+		}
+		
+		if(btnConn.getText().equals("종료")) {
+		  
 			txtInput.setDisable(true);
 			btnSend.setDisable(true);
 			listView.setItems(null);
-			base.stopClient();
+			machine.shutdown();
 			btnConn.setText("접속");	
 		}
 	}
 	/** 채팅룸 대기방 **/
-	public void btnWaitRoomAction(ActionEvent e) throws IOException {
+	public void btnWaitRoomAction(ActionEvent event) throws IOException {
 		
 		Parent root = FXMLLoader.load(getClass().getResource("../ctrWaitRoom.fxml"));
-		StackPane stage = (StackPane) btnWaitRoom.getScene().getRoot();
-		stage.getChildren().add(root);
 		
+		StackPane stage = (StackPane) btnWaitRoom.getScene().getRoot();
+		
+		stage.getChildren().add(root);
 	}
 	
 	public void set(Stage primaryStage) {
+	  
 		this.primaryStage = primaryStage;
 	}
 }

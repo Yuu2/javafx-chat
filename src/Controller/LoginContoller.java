@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
@@ -17,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 public class LoginContoller implements Initializable {
 	
@@ -30,7 +32,6 @@ public class LoginContoller implements Initializable {
 	@FXML // 확인 버튼
 	public Button btnLogin;
 	
-/*---------------------------------------------------------------------------------------------------------------------------------------*/
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -78,6 +79,7 @@ public class LoginContoller implements Initializable {
 			Thread thread = new Thread(task);
 			thread.start();
 		});
+		
 		/**	 입력창 글자 수 제한 ( LIMIT 12 ) **/
 		loginInput.lengthProperty().addListener(new ChangeListener<Number>() {		
 			
@@ -96,12 +98,12 @@ public class LoginContoller implements Initializable {
 	    });	
 	}
 	
-	/*** 컨트롤러 초기화 ***/
+	/** 컨트롤러 초기화 **/
 	public void set(Stage stage) {
 		this.stage = stage;
 	}
 	
-	/*** 메시지 라벨 설정 ***/
+	/** 메시지 라벨 설정 **/
 	public void setLabel(String text) {
 		lbLogin.setText(text);
 	}
