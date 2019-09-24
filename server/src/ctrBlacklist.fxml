@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="318.0" prefWidth="222.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ctrBlacklist">
+   <children>
+      <ListView fx:id="blacklist" layoutX="10.0" layoutY="40.0" prefHeight="239.0" prefWidth="202.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+      <Button layoutX="172.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnAdd" text="추가" />
+      <TextField fx:id="nameInput" layoutX="10.0" layoutY="285.0" prefHeight="23.0" prefWidth="157.0" />
+      <ToolBar prefHeight="23.0" prefWidth="222.0">
+         <items>
+            <Button onAction="#btnDelete" text="삭제" />
+         </items>
+      </ToolBar>
+   </children>
+</AnchorPane>

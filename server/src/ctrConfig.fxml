@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ctrConfig">
+   <children>
+      <TextField fx:id="fxSERVER_IP" layoutX="131.0" layoutY="42.0" prefHeight="23.0" prefWidth="154.0" text="localhost" />
+      <TextField fx:id="fxSERVER_PORT" alignment="CENTER" layoutX="131.0" layoutY="82.0" prefHeight="23.0" prefWidth="60.0" text="5001" />
+      <Label layoutX="53.0" layoutY="44.0" text="Server IP :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="84.0" text="Server Port :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="217.0" prefHeight="18.0" prefWidth="33.0" text="DB :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fxDB_NAME" editable="false" layoutX="134.0" layoutY="214.0" prefHeight="23.0" prefWidth="132.0" text="ChatServer">
+         <cursor>
+            <Cursor fx:constant="DISAPPEAR" />
+         </cursor>
+      </TextField>
+      <Separator layoutY="168.0" prefWidth="400.0" />
+      <Label layoutX="146.0" layoutY="21.0" text="- 서버 정보 설정" />
+      <Label layoutX="131.0" layoutY="185.0" text="- MySQL 데이터베이스 설정" />
+      <Label layoutX="38.0" layoutY="124.0" text="ByteBuffer :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="fxBuffer" layoutX="131.0" layoutY="121.0" prefHeight="23.0" prefWidth="103.0"> 
+	     <items>
+	        <FXCollections fx:factory="observableArrayList">
+	            <String fx:value="1000" />
+	            <String fx:value="2000" />
+	            <String fx:value="3000" />
+	            <String fx:value="4000" />
+	            <String fx:value="5000" />
+	        </FXCollections>
+	    </items>
+	     <value>
+        	<String fx:value="1000" />
+   		 </value>
+      </ChoiceBox>
+      <Label layoutX="23.0" layoutY="258.0" text="DB IP :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="214.0" layoutY="258.0" text="DB Port :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fxDB_IP" layoutX="73.0" layoutY="256.0" prefHeight="23.0" prefWidth="132.0" text="localhost" />
+      <TextField fx:id="fxDB_PORT" alignment="CENTER" layoutX="274.0" layoutY="256.0" prefHeight="23.0" prefWidth="60.0" text="3306" />
+      <Button fx:id="btnOk" layoutX="234.0" layoutY="346.0" mnemonicParsing="false" text="확인" />
+      <Button fx:id="btnNo" layoutX="133.0" layoutY="346.0" mnemonicParsing="false" text="취소" />
+      <Label layoutX="45.0" layoutY="301.0" text="ID :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fxDB_ID" layoutX="74.0" layoutY="298.0" prefHeight="23.0" prefWidth="103.0" text="root" />
+      <Label layoutX="193.0" layoutY="302.0" text="PW :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="fxDB_PW" layoutX="228.0" layoutY="298.0" prefHeight="23.0" prefWidth="110.0" text="1056dkdl"/>
+   </children>
+</AnchorPane>
