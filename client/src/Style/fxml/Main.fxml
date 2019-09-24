@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.*?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane prefHeight="450.0" prefWidth="600.0" stylesheets="Style/css/GUI.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+	<children>
+		<AnchorPane>
+   			<children>
+      			<TextArea fx:id="txtDisplay" editable="false" layoutX="136.0" layoutY="41.0" prefHeight="369.0" prefWidth="450.0" AnchorPane.leftAnchor="136.0" />
+    		    <TextField fx:id="txtInput" disable="true" layoutX="135.0" layoutY="414.0" prefHeight="28.0" prefWidth="375.0" text="" />
+    		    <Button fx:id="btnSend" disable="true" layoutX="515.0" layoutY="414.0" prefHeight="28.0" prefWidth="71.0" text="전송"> 
+      				<graphic>
+      						<ImageView fitHeight="20" fitWidth="20">
+      							<image>
+                       				 <Image url="@../img/send.png" />
+                     			</image>
+      						</ImageView>
+	  				</graphic>
+      			</Button>
+     			<ListView fx:id="listView" layoutX="7.0" layoutY="41.0" prefHeight="369.0" prefWidth="120.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="473.0" />
+		      <ToolBar prefHeight="35.0" prefWidth="325.0">
+		         <items>
+		            <Button fx:id="btnWaitRoom" disable="false" mnemonicParsing="false" onAction="#btnWaitRoomAction" prefHeight="20.0" prefWidth="80.0" text="채팅방 목록" />
+		            <Separator orientation="VERTICAL" prefHeight="25.0" prefWidth="0.0" />
+		            <Button prefHeight="20.0" prefWidth="40.0" text="설정" />
+		         </items>
+		      </ToolBar>
+		      <ToolBar layoutX="324.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="276.0">
+		         <items>
+		            <Button id="btnConn" fx:id="btnConn" alignment="CENTER" onAction="#btnConnAction" prefHeight="24.0" prefWidth="60.0" text="접속"> 
+		            	<graphic>
+							<ImageView fitHeight="15" fitWidth="15">
+								<image>
+									<Image url="@../img/start.png" />
+								</image>
+							</ImageView>
+			  			</graphic>
+		            </Button>
+		         </items>
+		      </ToolBar>
+		      <ComboBox fx:id="sendBox" layoutX="7.0" layoutY="414.0" prefHeight="28.0" prefWidth="120.0">
+		   	  	 <items>
+		   	  		<FXCollections fx:factory="observableArrayList">
+		   	  			<String fx:value="전체" />
+		   	  		</FXCollections>
+		   	  	 </items>
+		   	  	 <value>
+		       		    <String fx:value="전체" />
+		   		 </value>
+		   	  </ComboBox>
+   			</children>
+		</AnchorPane>
+	</children>
+</StackPane>
