@@ -1,1 +1,1 @@
-# 2019_JavaChatClient
+# JavaFXChat
