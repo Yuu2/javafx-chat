@@ -1,0 +1,19 @@
+INDEX VERSION 1.129+/Users/fndm35/yu/side_project/JavaFXChat/.metadata/.plugins/org.eclipse.jdt.core
+3408144298.index
+3620273037.index
+20193437.index
+2927125397.index
+2063143225.index
+2509967734.index
+4138123490.index
+3525260285.index
+4166710037.index
+986889207.index
+3655325204.index
+1271342938.index
+4162186371.index
+4255664270.index
+1312431870.index
+4176792344.index
+1260845855.index
+2486333746.index
