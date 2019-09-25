@@ -13,10 +13,14 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/Style/fxml/Main.fxml"));	
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/Template/Main.fxml")); // FXML로더 호출	
+		
 		Parent root = loader.load();
-		Station.main= loader.getController();
+		
+		Station.main = loader.getController();
+		
 		Station.main.set(primaryStage);
+		
 		Scene scene = new Scene(root);	
 		
 		primaryStage.sizeToScene();
@@ -24,7 +28,6 @@ public class Main extends Application {
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("채팅 클라이언트");
 
-		
 		primaryStage.show();  
 	}
 

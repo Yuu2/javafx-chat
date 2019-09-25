@@ -12,8 +12,8 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// FXML로더 호출
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("ctrBase.fxml"));
+
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("ctrBase.fxml")); // FXML로더 호출
 		Parent root = loader.load();
 		// 컨트롤러 정적변수. 어느 곳에서나 JAVA UI 참조 할 수 있게 해준다. 
 		Station.ctr0 = loader.getController();

@@ -7,13 +7,18 @@ import java.nio.channels.SocketChannel;
 
 public class Env {
 	
-	/** 버전 **/
+	/** VERSION **/
 	public static final double VERSION = 0.00001;
 	
-	/** 소켓채널 **/
+	/** CHANNEL **/
 	public static SocketChannel socketChannel;
 	
-	/** 버퍼 크기 **/
+	/** BUFFER **/
 	public static int bufferSize = 3000;
 	
+	/** LANGUAGE **/
+	public static String language = "ko";
+	
+	/** PROPERTY FILE ROOT **/
+	public static String messageProperty = System.getProperty("user.dir") + "/src/Message/message-" + language + ".properties" ;  
 }

@@ -1,7 +1,5 @@
 package Service;
 
-import Function.Function;
-
 /* -------------------------------------------------- */
 
 public class Command {

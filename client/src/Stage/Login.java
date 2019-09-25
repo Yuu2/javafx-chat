@@ -12,15 +12,14 @@ import javafx.stage.Stage;
 public class Login  {
 /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
   public void view() throws IOException {
-			
-    Stage stage = new Stage();
-			
+	System.out.print(0);
+		
+    Stage stage = new Stage();	
 	stage.setTitle("로그인 화면");
-	stage.getIcons().add(new Image(getClass().getResourceAsStream("../Style/ico.png")));
-			
-	FXMLLoader loader = new FXMLLoader(getClass().getResource("../Style/fxml/Login.fxml"));
+	stage.getIcons().add(new Image(getClass().getResourceAsStream("../../Style/img/ico.png")));
+	System.out.print(3);
+	FXMLLoader loader = new FXMLLoader(getClass().getResource("../Template/fxml/Login.fxml"));
 	Parent root = (Parent) loader.load();
-
 	Station.login = loader.getController();
 	Station.login.set(stage);
 			

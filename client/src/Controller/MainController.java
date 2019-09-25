@@ -1,11 +1,15 @@
 package Controller;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
-import Function.Machine;
+import Service.Machine;
 import Stage.Login;
+import Util.Display;
+import Util.MessageUtil;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -28,7 +32,7 @@ import javafx.stage.Stage;
 public class MainController implements Initializable{
 	
     public Stage primaryStage;
-  
+	
 	// 접속 버튼
 	@FXML public Button btnConn;
 	// 전송 버튼
@@ -45,10 +49,12 @@ public class MainController implements Initializable{
 	@FXML public ComboBox<String> sendBox;
 	
 	Machine machine;
-	
+	Properties props;
+
 /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {	
+	public void initialize(URL location, ResourceBundle resources) {
+        
 		/**	 입력창 글자 수 제한 ( LIMIT 40 ) **/
 		txtInput.lengthProperty().addListener(new ChangeListener<Number>() {		
 		  
@@ -87,16 +93,24 @@ public class MainController implements Initializable{
 		});
 	}
 /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-	/**	클라이언트 구동 **/
-	public void btnConnAction(ActionEvent event) {
+	/**	클라이언트 구동 
+	 * @throws Exception **/
+	public void btnConnAction(ActionEvent event) throws Exception {
 		machine = new Machine();
 		
 		if(btnConn.getText().equals("접속")) {
 			
 		  Login login = new Login();
 			try {
+				System.out.print("start");
 				login.view();
-			} catch (Exception e) { return; }
+				
+			} catch (Exception e) { 
+				
+					
+			  Display.add(MessageUtil.trans("login.fxml.fail") + " : " + e.toString());
+			  return; 
+			}
 			
 			machine.start();	
 		}
