@@ -1,15 +1,5 @@
 ## Introduction
-: JavaFx를 이용한 간단한 채팅앱. NIO채널을 이용해서 TCP/IP 블로킹 방식으로 구현하고 있습니다. <br>
-
-## Installation
-: 작업중이므로 실행프로그램화 되어있지 않습니다. 그러므로 실행하기 위해서는 아래의 `플러그인`이 필요합니다.<br>
-* JavaFX　<br>
-`javafx.jar`<br>
-* MySQL <br>
-`mysql-connector-java-5.1.47`
-https://dev.mysql.com/downloads/connector/j/ <br><br>
-
-다음은 chatserver.sql을 mysql 데이터베이스에 불러와주세요.<br>
+: JavaFx를 이용한 간단한 채팅앱 <br>
 
 
 ## Running
