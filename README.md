@@ -29,4 +29,3 @@ chat-room
 ##### 2018/03/04
 ![4](https://user-images.githubusercontent.com/40384777/53716852-a1fad700-3e99-11e9-8223-82f52ea0f1f1.png) <br>
 : 아이피차단<br>
-: 채팅룸 DB 설계
