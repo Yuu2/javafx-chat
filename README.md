@@ -1,4 +1,4 @@
-## Running
+## Installation
 ![1](https://user-images.githubusercontent.com/40384777/53419396-26260800-3a1d-11e9-9ed5-eae6318a2ece.png)　<br>
 : 서버 초기설정 필요<br>
 
