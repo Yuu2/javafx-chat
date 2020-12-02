@@ -7,7 +7,6 @@
 ![2](https://user-images.githubusercontent.com/40384777/53467617-552e8f00-3a9a-11e9-9408-84ece8273573.png) <br>
 
 ![3](https://user-images.githubusercontent.com/40384777/53716861-a45d3100-3e99-11e9-99e6-ddc62d80615e.png) <br>
-chat-room
 
 ## Contributing
 
